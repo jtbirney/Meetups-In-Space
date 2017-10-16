@@ -1,0 +1,26 @@
+<h1>New Meetup</h1>
+
+<form id="new-meetup" action="/edit-meetup" method="post">
+  <input type="hidden" name="meetup" value="<%= @id %>" />
+  <input type="text" name="meetup_name" id="meetup_name" placeholder="Meetup name"/ value="<%= @meetup_name %>">
+  <% if @errors %>
+    <% if @errors[:name] != [] %>
+      <div class="error name-error">Name can't be blank</div>
+    <% end %>
+  <% end %>
+  <br />
+  <br />
+  <input type="text" name="meetup_location" id="meetup_location" placeholder="Meetup location" value="<%= @meetup_location %>"/>
+  <br />
+  <br />
+  <% if @errors %>
+    <% if @errors[:details] != [] %>
+      <div class="error details-error">Details can't be blank</div>
+    <% end %>
+  <% end %>
+  <br />
+  <textarea name="meetup_details" id="meetup_details" rows="5" cols="100" placeholder="Description goes here..." form="new-meetup" value=""><%= @meetup_details %></textarea>
+  <br />
+  <br />
+  <input type="submit" value="Update Meetup"/>
+</form>

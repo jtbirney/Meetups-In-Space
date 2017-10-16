@@ -1,0 +1,82 @@
+
+body {
+  background-image: url('/images/stardust.png');
+  color: #FFFFFF;
+}
+
+a,
+a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+form, button {
+  color: #5b5b5b;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.top-bar {
+  background-color: #3C3C3C;
+}
+
+.top-bar-section {
+  display: inline-block;
+  float: right;
+}
+
+.top-bar-section li {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.logo {
+  display: inline-block;
+  margin: 1em 0;
+}
+
+.flash {
+  padding: 1em;
+  background-color: #3B9089;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sidebar {
+  width: 19%;
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.error {
+  display: inline-block;
+  width: 10em;
+  text-align: center;
+  color: #870000;
+  background-color: #bf8282;
+  padding: .2em;
+  margin-bottom: .5em;
+  border-radius: .25em;
+}
+
+.small-avatar {
+  max-width: 5em;
+}
+
+.button {
+  display: inline;
+  width: auto;
+}
+
+.attendee-button {
+  width: 10em;
+}

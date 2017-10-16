@@ -1,0 +1,54 @@
+<h1> <%= @meetup.name %> </h1>
+<div class="main">
+  <h4>Location: <%= @meetup.location %> </h4>
+  <p>
+    <%= @meetup.details %>
+  </p>
+</div>
+
+<div class="sidebar">
+  <% if @current %>
+    <% if @current.creator %>
+      <form class="button" id="edit-meetup" action="/edit-meetup" method="get">
+        <input type="hidden" name="meetup" value="<%= @meetup.id %>"/>
+        <button>Edit</button>
+      </form>
+      <form class="button" id="delete-meetup" action="/delete-meetup" method="post">
+        <input type="hidden" name="meetup" value="<%= @meetup.id %>"/>
+        <button>Delete</button>
+      </form>
+      <br />
+      <br />
+    <% end %>
+  <% end %>
+  <% if @attendees.include?(User.find(4)) %>
+    <form class="attendee-button" id="remove-from-meetup" action="/remove-from-meetup" method="post">
+      <input type="hidden" name="meetup" value="<%= @meetup.id %>"/>
+      <button>Remove me from this meetup</button>
+    </form>
+  <% else %>
+    <form class="attendee-button" id="add-to-meetup" action="/add-to-meetup" method="post">
+      <input type="hidden" name="meetup" value="<%= @meetup.id %>"/>
+      <button>Add Me to This Meetup</button>
+    </form>
+  <% end %>
+  <br>
+  <div> <%= @message %>  </div>
+  <br />
+  <div id="attendees">
+    <hr />
+    <h4>Attendees</h4>
+    <hr />
+    <% @attendees.each do |attendee| %>
+      <img src="<%= attendee.avatar_url %>" alt="<%= attendee.username %>'s avatar" class="small-avatar" id="user<%= attendee.id%>"/>
+      <% if attendee.user_meetups.find_by(meetup: @meetup).creator %>
+        <% creator = " - Creator" %>
+      <% end %>
+      <div>
+        <%= attendee.username %> <%= creator %>
+      </div>
+      <br />
+    <% end %>
+
+  </div>
+</div>
